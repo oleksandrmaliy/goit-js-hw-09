@@ -2,6 +2,8 @@ const startBtn = document.querySelector('button[data-start]');
 const stopBtn = document.querySelector('button[data-stop]');
 const field = document.body;
 
+let colorizeTimerId;
+
 startBtn.addEventListener('click', startColorize);
 stopBtn.addEventListener('click', stopColorize);
 
