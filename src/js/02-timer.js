@@ -81,6 +81,9 @@ function onStartClick() {
 
     if (ms < 1000) {
       clearInterval(counterId);
+      setTimeout(() => {
+        alert('GAME OVER !');
+      }, 1);
     }
   }, 1000);
 }
