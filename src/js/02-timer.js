@@ -9,10 +9,12 @@ let ms = 0;
 // let remainTime = {};
 let timeRemains = {};
 
-const value = document.querySelectorAll('.value');
+const value = document.querySelector('.value');
 const label = document.querySelector('.label');
-console.log('value');
-value.style.fontSize = "36px";
+
+value.style.fontSize ="100px";
+console.log(value);
+console.log(value.style);
 
 
 
