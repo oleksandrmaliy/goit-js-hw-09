@@ -5,9 +5,8 @@ import 'flatpickr/dist/flatpickr.min.css';
 
 import Notiflix from 'notiflix';
 
-let ms;
 let dateNew;
-let timeRemains = {};
+let timeRemains;
 
 const daysRemain = document.querySelector('span[data-days]');
 const hoursRemain = document.querySelector('span[data-hours]');
@@ -24,11 +23,8 @@ const options = {
     console.log(selectedDates[0]);
 
     dateNew = selectedDates[0];
-    const dateNow = options.defaultDate;
 
-    const remainMs = dateNew - dateNow;
-
-    if (remainMs > 0) {
+    if (dateNew - options.defaultDate > 0) {
       startBtn.disabled = false;
     } else {
       alert('Choise date in further!');
@@ -69,7 +65,7 @@ function addLeadingZero({ days, hours, minutes, seconds }) {
 }
 
 function onStartClick() {
-  ms = dateNew - new Date();
+  let ms = dateNew - new Date();
 
   convertMs(ms);
   addLeadingZero(timeRemains);
