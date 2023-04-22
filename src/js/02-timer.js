@@ -17,7 +17,7 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     console.log(selectedDates[0]);
-   
+
     const dateNew = selectedDates[0];
     const dateNow = options.defaultDate;
 
@@ -29,15 +29,15 @@ const options = {
       alert('Choise date in further!');
     }
 
-    // console.log('');
-    // console.log(dateNew);
-    // console.log(dateNow);
-    // console.log(ms);
+    console.log('');
+    console.log(dateNew);
+    console.log(dateNow);
+    console.log(ms);
   },
 };
 const fp = flatpickr(inputDateTime, options); // flatpickr
 
-startBtn.addEventListener('click', calculateTime);
+startBtn.addEventListener('click', console.log('zzzzzzz'));
 startBtn.disabled = true;
 
 function calculateTime() {
@@ -71,15 +71,13 @@ function convertMs(ms) {
 
 function addLeadingZero(value) {
   // padStart();
-  console.log("value");
-  
+  console.log('value');
 }
 convertMs(ms);
 addLeadingZero(convertMs(ms));
 const z = 5;
-function foo(z) {
-  z.padstart(3, 0);
-  console.log(z.padstart(3, 0));
+function foo(value) {
+  console.log(value.toString.padStart(3, 4));
 }
 
 foo(z);
