@@ -5,6 +5,10 @@ import 'flatpickr/dist/flatpickr.min.css';
 
 import Notiflix from 'notiflix';
 
+// Notiflix.Notify.success('GAME OVER !');
+// Notiflix.Notify.warning('Memento te hominem esse');
+// Notiflix.Notify.info('Cogito ergo sum');
+
 let dateNew;
 let timeRemains;
 
@@ -27,7 +31,7 @@ const options = {
     if (dateNew - options.defaultDate > 0) {
       startBtn.disabled = false;
     } else {
-      alert('Choise date in further!');
+      Notiflix.Notify.failure('Choise date in further!');
     }
   },
 };
@@ -67,6 +71,11 @@ function addLeadingZero({ days, hours, minutes, seconds }) {
 function onStartClick() {
   let ms = dateNew - new Date();
 
+  if (ms < 1000) {
+    startBtn.disabled = true;
+    Notiflix.Notify.failure('Choise again date in further!');
+    return;
+  }
   convertMs(ms);
   addLeadingZero(timeRemains);
 
@@ -82,8 +91,8 @@ function onStartClick() {
     if (ms < 1000) {
       clearInterval(counterId);
       setTimeout(() => {
-        alert('GAME OVER !');
-      }, 1);
+        Notiflix.Notify.info('GAME OVER!');
+      }, 0);
     }
   }, 1000);
 }
