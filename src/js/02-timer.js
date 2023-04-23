@@ -73,7 +73,9 @@ function onStartClick() {
 
   if (ms < 1000) {
     startBtn.disabled = true;
-    Notiflix.Notify.failure('Choise again date in further!');
+    Notiflix.Notify.failure(
+      'Date you have chosen is already in past. Choise again date in further!'
+    );
     return;
   }
   convertMs(ms);
@@ -90,9 +92,7 @@ function onStartClick() {
 
     if (ms < 1000) {
       clearInterval(counterId);
-      setTimeout(() => {
-        Notiflix.Notify.info('GAME OVER!');
-      }, 0);
+      Notiflix.Notify.info('GAME OVER!');
     }
   }, 1000);
 }
