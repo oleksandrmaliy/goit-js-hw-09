@@ -10,6 +10,7 @@ function callPromises(event) {
   let delay = parseInt(event.target.elements.delay.value);
   const step = parseInt(event.target.elements.step.value);
   const amount = parseInt(event.target.elements.amount.value);
+  let i = 0;
 
   for (i = 1; i <= amount; i += 1) {
     createPromise(i, delay)
