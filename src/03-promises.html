@@ -9,20 +9,20 @@
   <body>
     <p><a href="index.html">Go back</a></p>
 
-    <form class="form">
+    <form class="form" style="display: flex">
       <label>
-        First delay (ms)
-        <input type="number" name="delay" required />
+        <span style="display: block">First delay (ms)</span>
+        <input type="number" name="delay" style=" margin-right: 5px" required />
       </label>
       <label>
-        Delay step (ms)
-        <input type="number" name="step" required />
+        <span style="display: block">Delay step (ms)</span>
+        <input type="number" name="step" style=" margin-right: 5px" required />
       </label>
       <label>
-        Amount
-        <input type="number" name="amount" required />
+        <span style="display: block">Amount</span>
+        <input type="number" name="amount" style=" margin-right: 5px" required />
       </label>
-      <button type="submit">Create promises</button>
+      <button type="submit" style="height: 21px; margin-top: auto">Create promises</button>
     </form>
 
     <script src="js/03-promises.js" type="module"></script>
