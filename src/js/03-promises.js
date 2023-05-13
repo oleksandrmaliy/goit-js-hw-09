@@ -12,6 +12,11 @@ function callPromises(event) {
   const amount = parseInt(event.target.elements.amount.value);
   let i = 0;
 
+  if (step < 0 || delay < 0 || amount <= 0) {
+    Notiflix.Notify.failure(`All values must be positive!`);
+    return;
+  }
+
   for (i = 1; i <= amount; i += 1) {
     createPromise(i, delay)
       .then(({ position, delay }) => {
