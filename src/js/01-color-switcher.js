@@ -3,17 +3,17 @@ const stopBtn = document.querySelector('button[data-stop]');
 const field = document.body;
 
 let colorizeTimerId;
+let bool = true;
 
 startBtn.addEventListener('click', startColorize);
 stopBtn.addEventListener('click', stopColorize);
 
-stopBtn.disabled = true;
+stopBtn.disabled = bool;
 
 function startColorize() {
   field.style.backgroundColor = getRandomHexColor();
 
-  startBtn.disabled = true;
-  stopBtn.disabled = false;
+  changeBtn();
 
   colorizeTimerId = setInterval(() => {
     field.style.backgroundColor = getRandomHexColor();
@@ -21,10 +21,16 @@ function startColorize() {
 }
 
 function stopColorize() {
-  startBtn.disabled = false;
-  stopBtn.disabled = true;
+  changeBtn();
 
   clearInterval(colorizeTimerId);
+}
+
+function changeBtn() {
+  startBtn.disabled = bool;
+  stopBtn.disabled = !bool;
+
+  bool = !bool;
 }
 
 function getRandomHexColor() {

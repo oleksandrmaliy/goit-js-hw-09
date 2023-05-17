@@ -23,14 +23,13 @@ const options = {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  onClose(selectedDates) {
-    console.log(selectedDates[0]);
+  onClose([selectedDates]) {
+    dateNew = selectedDates;
 
-    dateNew = selectedDates[0];
-
-    if (dateNew - options.defaultDate > 0) {
+    if (dateNew > Date.now()) {
       startBtn.disabled = false;
     } else {
+      startBtn.disabled = true;
       Notiflix.Notify.failure('Choise date in further!');
     }
   },
@@ -62,14 +61,14 @@ function convertMs(ms) {
 }
 
 function addLeadingZero({ days, hours, minutes, seconds }) {
-  daysRemain.textContent = days.toString().padStart(2, 0);
-  hoursRemain.textContent = hours.toString().padStart(2, 0);
-  minutesRemain.textContent = minutes.toString().padStart(2, 0);
-  secondsRemain.textContent = seconds.toString().padStart(2, 0);
+  daysRemain.textContent = timeToString(days);
+  hoursRemain.textContent = timeToString(hours);
+  minutesRemain.textContent = timeToString(minutes);
+  secondsRemain.textContent = timeToString(seconds);
 }
 
 function onStartClick() {
-  let ms = dateNew - new Date();
+  let ms = dateNew - Date.now();
 
   if (ms < 1000) {
     startBtn.disabled = true;
@@ -95,4 +94,8 @@ function onStartClick() {
       Notiflix.Notify.info('GAME OVER!');
     }
   }, 1000);
+}
+
+function timeToString(data) {
+  return data.toString().padStart(2, 0);
 }
